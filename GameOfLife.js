@@ -1,8 +1,8 @@
 const matrix = [
-  [0, 0, 0, 0, 0],
-[0, 0, 1, 0, 0],
-[0, 0, 1, 0, 0],
-[0, 0, 1, 0, 0],
+  [1, 0, 0, 0, 0],
+[0, 1, 0, 0, 0],
+[0, 0, 0, 0, 0],
+[0, 1, 0, 1, 0],
 [0, 0, 0, 0, 0]
 ];
 
@@ -14,7 +14,6 @@ function checkNeighbours(matrix, i, j) {
   
   let count = 0;
 
-  debugger;
   if(i-1>=0 && j-1>=0 && matrix[i-1][j-1] === 1) {
     count++;
   }
@@ -78,7 +77,7 @@ console.table(checkMatrix(matrix));
      
 module.exports = {
   checkNeighbours,
-  checkMatrix,
+  checkMatrix
 }
     
 
