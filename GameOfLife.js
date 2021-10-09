@@ -10,7 +10,7 @@ const matrix = [
 console.table(matrix);
 
 
-function checkVoisins(matrix, i, j) {
+function checkNeighbours(matrix, i, j) {
   
   let count = 0;
 
@@ -49,7 +49,7 @@ for (let i=0; i<matrix.length; i++) {
   newArr[i]=[];
   for (let j=0; j<matrix[i].length; j++) {
     
-    let result = checkVoisins(matrix, i, j);
+    let result = checkNeighbours(matrix, i, j);
     if (matrix[i][j] === 1) {
       if (result < 2) {
         newArr[i][j] = 0;
@@ -76,7 +76,10 @@ return newArr;
 console.table(checkMatrix(matrix));
 
      
-
+module.exports = {
+  checkNeighbours,
+  checkMatrix,
+}
     
 
  
