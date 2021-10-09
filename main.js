@@ -95,104 +95,204 @@ function countAdjacent(matrix) {
       }
     }
   
-function topLeftCorner() {      
+  function topLeftCorner() {      
    
-    if(matrix[i][j+1] === 1) {
-      count1 += 1;
+    if(matrix[i][j] === 1) {
+      if(matrix[i][j+1] === 1) {
+        count1 += 1;
+      }
+      if(matrix[i+1][j] === 1) {
+        count1 += 1;
+      }
+      if(matrix[i+1][j+1] === 1) {
+        count1 += 1;
+      }
+      applyRules1(count1);
+      count1 = 0;
     }
-    if(matrix[i+1][j] === 1) {
-      count1 += 1;
-    }
-    if(matrix[i+1][j+1] === 1) {
-      count1 += 1;
-    }
-    if(matrix[i][j+1] === 0) {
-      count2 += 1;
-    }
-    if(matrix[i+1][j] === 0) {
-      count2 += 1;
-    }
-    if(matrix[i+1][j+1] === 0) {
-      count2 += 1;
-    }
-  
-    applyRules1(count1);
-    applyRules2(count2)
-    count1 = 0;
-    count2 = 0;
+    else if(matrix[i][j] === 0) {
+      if(matrix[i][j+1] === 1) {
+        count2 += 1;
+      }
+      if(matrix[i+1][j] === 1) {
+        count2 += 1;
+      }
+      if(matrix[i+1][j+1] === 1) {
+        count2 += 1;
+      }
+      applyRules2(count2)
+      count2 = 0;
+    } 
   }
 
   function leftBorder() {
-   
-    if(matrix[i-1][j] === 1) {
-      count1 += 1;
+
+    if(matrix[i][j] === 1) {
+
+      if(matrix[i-1][j] === 1) {
+        count1 += 1;
+      }
+      if(matrix[i-1][j+1] === 1) {
+        count1 += 1;
+      }
+      if(matrix[i][j+1] === 1) {
+        count1 += 1;
+      }
+      if(matrix[i+1][j] === 1) {
+        count1 += 1;
+      }
+      if(matrix[i+1][j+1] === 1) {
+        count1 += 1;
+      }
+      applyRules1(count1);
+      count1 = 0;
     }
-    if(matrix[i-1][j+1] === 1) {
-      count1 += 1;
+    else if(matrix[i][j] === 0) {
+
+      if(matrix[i-1][j] === 1) {
+        count2 += 1;
+      }
+      if(matrix[i-1][j+1] === 1) {
+        count2 += 1;
+      }
+      if(matrix[i][j+1] === 1) {
+        count2 += 1;
+      }
+      if(matrix[i+1][j] === 1) {
+        count2 += 1;
+      }
+      if(matrix[i+1][j+1] === 1) {
+        count2 += 1;
+      }
+      applyRules2(count2)
+      count2 = 0;
     }
-    if(matrix[i][j+1] === 1) {
-      count1 += 1;
-    }
-    if(matrix[i+1][j] === 1) {
-      count1 += 1;
-    }
-    if(matrix[i+1][j+1] === 1) {
-      count1 += 1;
-    }
-    if(matrix[i-1][j] === 0) {
-      count2 += 1;
-    }
-    if(matrix[i-1][j+1] === 0) {
-      count1 += 2;
-    }
-    if(matrix[i][j+1] === 0) {
-      count1 += 2;
-    }
-    if(matrix[i+1][j] === 0) {
-      count1 += 2;
-    }
-    if(matrix[i+1][j+1] === 0) {
-      count1 += 2;
-    }
-    applyRules1(count1);
-    applyRules2(count2)
-    count1 = 0;
-    count2 = 0;
   }
 
   function bottomLeftCorner() {
-  
-    if(matrix[i-1][j] === 1) {
-      count2 += 1;
+
+    if(matrix[i][j] === 1) {
+
+      if(matrix[i-1][j] === 1) {
+        count1 += 1;
+      }
+      if(matrix[i-1][j+1] === 1) {
+        count1 += 1;
+      }
+      if(matrix[i][j+1] === 1) {
+        count1 += 1;
+      }
+      applyRules1(count1);
+      count1 = 0;
     }
-    if(matrix[i-1][j+1] === 1) {
-      count2 += 1;
+    else if(matrix[i][j] === 0) {
+      if(matrix[i-1][j] === 1) {
+        count2 += 1;
+      }
+      if(matrix[i-1][j+1] === 1) {
+        count2 += 1;
+      }
+      if(matrix[i][j+1] === 1) {
+        count2 += 1;
+      }
+      applyRules2(count2)
+      count2 = 0;
     }
-   
-    if(matrix[i][j+1] === 1) {
-      count2 += 1;
-    }
-    if(matrix[i-1][j] === 0) {
-      count2 += 1;
-    }
-    if(matrix[i-1][j+1] === 0) {
-      count1 += 2;
-    }
-    if(matrix[i][j+1] === 0) {
-      count1 += 2;
-    }
-    applyRules1(count1);
-    applyRules2(count2)
-    count1 = 0;
-    count2 = 0;
   }
 
   function topBorder() {
   
-    if(matrix[i][j-1] === 1) {
-      count1 += 1;
+    if(matrix[i][j] === 1) {
+
+      if(matrix[i][j-1] === 1) {
+        count1 += 1;
+      }
+      if(matrix[i][j+1] === 1) {
+        count1 += 1;
+      }
+      if(matrix[i+1][j-1] === 1) {
+        count1 += 1;
+      }
+      if(matrix[i+1][j] === 1) {
+        count1 += 1;
+      }
+      if(matrix[i+1][j+1] === 1) {
+        count1 += 1;
+      }
+      applyRules1(count1);
+      count1 = 0;
     }
-    if(matrix[i][j+1] === 1) {
+    else if(matrix[i][j] === 0) {
+
+      if(matrix[i][j-1] === 1) {
+        count2 += 1;
+      }
+      if(matrix[i][j+1] === 1) {
+        count2 += 1;
+      }
+      if(matrix[i+1][j-1] === 1) {
+        count2 += 1;
+      }
+      if(matrix[i+1][j] === 1) {
+        count2 += 1;
+      }
+      if(matrix[i+1][j+1] === 1) {
+        count2 += 1;
+      }
+      applyRules2(count2)
+      count2 = 0;
+    }
+  }
+
+  function bottomBorder() {
+
+    if(matrix[i][j] === 1) {
+
+      if(matrix[i-1][j-1] === 1) {
+        count1 += 1;
+      }
+      if(matrix[i-1][j] === 1) {
+        count1 += 1;
+      }
+      if(matrix[i-1][j+1] === 1) {
+        count1 += 1;
+      }
+      if(matrix[i][j-1] === 1) {
+        count1 += 1;
+      }
+      if(matrix[i][j+1] === 1) {
+        count1 += 1;
+      }
+      applyRules1(count1);
+      count1 = 0;
+    }
+    else if(matrix[i][j] === 0) {
+
+      if(matrix[i-1][j-1] === 1) {
+        count2 += 1;
+      }
+      if(matrix[i-1][j] === 1) {
+        count2 += 1;
+      }
+      if(matrix[i-1][j+1] === 1) {
+        count2 += 1;
+      }
+      if(matrix[i][j-1] === 1) {
+        count2 += 1;
+      }
+      if(matrix[i][j+1] === 1) {
+        count2 += 1;
+      }
+      applyRules2(count2)
+      count2 = 0;
+    }
+  }
+
+  function topRightBorder() {
+
+  if(matrix[i][j] === 1) {
+
+    if(matrix[i][j-1] === 1) {
       count1 += 1;
     }
     if(matrix[i+1][j-1] === 1) {
@@ -201,31 +301,28 @@ function topLeftCorner() {
     if(matrix[i+1][j] === 1) {
       count1 += 1;
     }
-    if(matrix[i+1][j+1] === 1) {
-      count1 += 1;
-    }
+    applyRules1(count1);
+    count1 = 0;
+  }
+  else if(matrix[i][j] === 0) {
+
     if(matrix[i][j-1] === 0) {
-      count1 += 1;
-    }
-    if(matrix[i][j+1] === 0) {
-      count1 += 1;
+      count2 += 1;
     }
     if(matrix[i+1][j-1] === 0) {
-      count1 += 1;
+      count2 += 1;
     }
     if(matrix[i+1][j] === 0) {
-      count1 += 1;
+      count2 += 1;
     }
-    if(matrix[i+1][j+1] === 0) {
-      count1 += 1;
-    }
-    applyRules1(count1);
     applyRules2(count2)
-    count1 = 0;
     count2 = 0;
   }
+    
+ 
+  
 
-  function bottomBorder() {
+  function rightBorder() {
 
     if(matrix[i-1][j-1] === 1) {
       count1 += 1;
@@ -233,32 +330,35 @@ function topLeftCorner() {
     if(matrix[i-1][j] === 1) {
       count1 += 1;
     }
-    if(matrix[i-1][j+1] === 1) {
-      count1 += 1;
-    }
     if(matrix[i][j-1] === 1) {
       count1 += 1;
     }
-    if(matrix[i][j+1] === 1) {
+    if(matrix[i+1][j-1] === 1) {
+      count1 += 1;
+    }
+    if(matrix[i+1][j] === 1) {
       count1 += 1;
     }
     if(matrix[i-1][j-1] === 0) {
-      count1 += 1;
+      count2 += 1;
     }
     if(matrix[i-1][j] === 0) {
-      count1 += 1;
-    }
-    if(matrix[i-1][j+1] === 0) {
-      count1 += 1;
+      count2 += 1;
     }
     if(matrix[i][j-1] === 0) {
-      count1 += 1;
+      count2 += 1;
     }
-    if(matrix[i][j+1] === 0) {
-      count1 += 1;
+    if(matrix[i+1][j-1] === 0) {
+      count2 += 1;
+    }
+    if(matrix[i+1][j] === 0) {
+      count2 += 1;
     }
   }
-  
+
+
+
+
   countAdjacent(matrix);
 
     
