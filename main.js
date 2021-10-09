@@ -95,7 +95,7 @@ function countAdjacent(matrix) {
       }
     }
   
-function topLeftCorner() {      
+  function topLeftCorner() {      
    
     if(matrix[i][j+1] === 1) {
       count1 += 1;
@@ -143,16 +143,16 @@ function topLeftCorner() {
       count2 += 1;
     }
     if(matrix[i-1][j+1] === 0) {
-      count1 += 2;
+      count2 += 1;
     }
     if(matrix[i][j+1] === 0) {
-      count1 += 2;
+      count2 += 1;
     }
     if(matrix[i+1][j] === 0) {
-      count1 += 2;
+      count2 += 1;
     }
     if(matrix[i+1][j+1] === 0) {
-      count1 += 2;
+      count2 += 1;
     }
     applyRules1(count1);
     applyRules2(count2)
@@ -163,23 +163,22 @@ function topLeftCorner() {
   function bottomLeftCorner() {
   
     if(matrix[i-1][j] === 1) {
-      count2 += 1;
+      count1 += 1;
     }
     if(matrix[i-1][j+1] === 1) {
-      count2 += 1;
+      count1 += 1;
     }
-   
     if(matrix[i][j+1] === 1) {
-      count2 += 1;
+      count1 += 1;
     }
     if(matrix[i-1][j] === 0) {
       count2 += 1;
     }
     if(matrix[i-1][j+1] === 0) {
-      count1 += 2;
+      count2 += 1;
     }
     if(matrix[i][j+1] === 0) {
-      count1 += 2;
+      count2 += 1;
     }
     applyRules1(count1);
     applyRules2(count2)
@@ -205,19 +204,19 @@ function topLeftCorner() {
       count1 += 1;
     }
     if(matrix[i][j-1] === 0) {
-      count1 += 1;
+      count2 += 1;
     }
     if(matrix[i][j+1] === 0) {
-      count1 += 1;
+      count2 += 1;
     }
     if(matrix[i+1][j-1] === 0) {
-      count1 += 1;
+      count2 += 1;
     }
     if(matrix[i+1][j] === 0) {
-      count1 += 1;
+      count2 += 1;
     }
     if(matrix[i+1][j+1] === 0) {
-      count1 += 1;
+      count2 += 1;
     }
     applyRules1(count1);
     applyRules2(count2)
@@ -243,22 +242,43 @@ function topLeftCorner() {
       count1 += 1;
     }
     if(matrix[i-1][j-1] === 0) {
-      count1 += 1;
+      count2 += 1;
     }
     if(matrix[i-1][j] === 0) {
-      count1 += 1;
+      count2 += 1;
     }
     if(matrix[i-1][j+1] === 0) {
-      count1 += 1;
+      count2 += 1;
     }
     if(matrix[i][j-1] === 0) {
-      count1 += 1;
+      count2 += 1;
     }
     if(matrix[i][j+1] === 0) {
-      count1 += 1;
+      count2 += 1;
     }
   }
   
+  function topRightBorder() {
+  
+    if(matrix[i][j-1] === 1) {
+      count1 += 1;
+    }
+    if(matrix[i+1][j-1] === 1) {
+      count1 += 1;
+    }
+    if(matrix[i+1][j] === 1) {
+      count1 += 1;
+    }
+    if(matrix[i][j-1] === 0) {
+      count2 += 1;
+    }
+    if(matrix[i+1][j-1] === 0) {
+      count2 += 1;
+    }
+    if(matrix[i+1][j] === 0) {
+      count2 += 1;
+    }
+  }
   countAdjacent(matrix);
 
     
