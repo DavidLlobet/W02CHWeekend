@@ -13,6 +13,8 @@ let matrix = [
 const boardHTML = document.getElementsByClassName("board");
 const column = document.getElementsByClassName("board__column");
 
+let loop = null;
+
 console.table(matrix);
 
 function createDivs() {
@@ -49,7 +51,6 @@ function changeColor() {
   }
 }
 
-
 function checkNeighbours(matrix, i, j) {
   
   let count = 0;
@@ -81,7 +82,21 @@ function checkNeighbours(matrix, i, j) {
   return count;
 }
 
-function checkMatrix(matrix) {
+function transformBoard(arr) {
+  for (let i=0; i<arr.length; i++) {
+    for (let j=0; j<arr[i].length; j++) {
+  
+    const cell = arr[i][j];
+    if(cell === 0) {
+      document.getElementById(i + "-" + j).style.backgroundColor = "black";
+    } else {
+      document.getElementById(i + "-" + j).style.backgroundColor = "grey";
+    }
+    }
+  }
+}
+
+function checkMatrix() {
 
 let newArr =[];
 for (let i=0; i<matrix.length; i++) {
@@ -109,16 +124,16 @@ for (let i=0; i<matrix.length; i++) {
     }
   }
 }
+transformBoard(newArr);
+matrix = newArr;
 return newArr;
 }
 
-console.table(a)
-
-matrix = a;
-
-
-
-console.table(a);
+function bucle() {
+  loop = setInterval(() => {
+    checkMatrix();
+  }, 1500);
+}
 
      
 module.exports = {
