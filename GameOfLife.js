@@ -1,13 +1,53 @@
-const matrix = [
-  [1, 0, 0, 0, 0],
-[0, 1, 0, 0, 0],
-[0, 0, 0, 0, 0],
-[0, 1, 0, 1, 0],
-[0, 0, 0, 0, 0]
+let matrix = [
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 ];
-
+const boardHTML = document.getElementsByClassName("board");
+const column = document.getElementsByClassName("board__column");
 
 console.table(matrix);
+
+function createDivs() {
+  const newBoard = document.createElement("div");
+  newBoard.className = "board__new-board";
+  for (let i = 0; i < 10; i++) {
+    const newDivColumn = document.createElement("div");
+    newDivColumn.className = "board__column";
+    boardHTML[0].appendChild(newBoard);
+    newBoard.appendChild(newDivColumn);
+  }
+  for (let i = 0; i < 10; i++) {
+    for (let j = 0; j < 10; j++) {
+      const newDivCell = document.createElement("div");
+      newDivCell.className = "board__cell";
+      newDivCell.id = `${i}-${j}`;
+      newDivCell.style.background = "black";
+      newDivCell.onclick = changeColor;
+      column[i].appendChild(newDivCell);
+    }
+  }
+}
+
+function changeColor() {
+  const position = this.id.split("-");
+  const row = position[0];
+  const cell = position[1];
+  if(this.style.background === "black") {
+    this.style.background = "grey";
+    matrix[row][cell] = 1;
+  } else {
+    this.style.background = "grey"
+    matrix[row][cell] = 0;
+  }
+}
 
 
 function checkNeighbours(matrix, i, j) {
@@ -72,7 +112,13 @@ for (let i=0; i<matrix.length; i++) {
 return newArr;
 }
 
-console.table(checkMatrix(matrix));
+console.table(a)
+
+matrix = a;
+
+
+
+console.table(a);
 
      
 module.exports = {
