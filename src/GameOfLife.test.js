@@ -84,26 +84,4 @@ describe("Given a checkMatrix function",  () => {
       expect(result).toEqual(expected);
     });
   });
-  describe("when it receives a specific array",  () => {
-    test("then it should return a new array",  () => {
-      const input = [   
-        [1, 0, 0, 0, 0],
-        [0, 1, 0, 0, 0],
-        [0, 0, 0, 0, 0],
-        [0, 1, 0, 1, 0],
-        [0, 0, 0, 0, 0]
-        ];
-      const expected =  [ 
-      [0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0],
-      [0, 0, 1, 0, 0],
-      [0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0]
-      ];
-
-      const result = matrix.checkMatrix(input);
-
-      expect(result).toEqual(expected);
-    });
-  });
 });
