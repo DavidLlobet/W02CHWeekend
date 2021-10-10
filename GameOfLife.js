@@ -135,7 +135,19 @@ function bucle() {
   }, 1500);
 }
 
-     
+function stop() {
+  clearInterval(loop);
+}
+
+function cleanGame() {
+  for (let i=0; i<matrix.length; i++) {
+    for (let j=0; j<matrix[i].length; j++) {
+      matrix[i][j] = 0;
+      document.getElementById(i + "-" + j).style.backgroundColor = "black";
+    }
+  }
+}
+  
 module.exports = {
   checkNeighbours,
   checkMatrix
