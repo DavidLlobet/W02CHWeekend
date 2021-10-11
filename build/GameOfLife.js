@@ -29,9 +29,8 @@ function createDivs() {
   for (let i = 0; i < 10; i++) {
     for (let j = 0; j < 10; j++) {
       const newDivCell = document.createElement("div");
-      newDivCell.className = "board__cell";
+      newDivCell.classList.add("board__cell", "die");
       newDivCell.id = `${i}-${j}`;
-      newDivCell.style.background = "black";
       newDivCell.onclick = changeColor;
       column[i].appendChild(newDivCell);
     }
@@ -42,11 +41,13 @@ function changeColor() {
   const position = this.id.split("-");
   const row = position[0];
   const cell = position[1];
-  if(this.style.background === "black") {
-    this.style.background = "grey";
+  if(this.classList.contains("die")) {
+    this.classList.remove("die");
+    this.classList.add("live");
     matrix[row][cell] = 1;
-  } else {
-    this.style.background = "grey"
+  } else {    
+    this.classList.remove("die");
+    this.classList.add("live");
     matrix[row][cell] = 0;
   }
 }
@@ -88,9 +89,13 @@ function transformBoard(arr) {
   
     const cell = arr[i][j];
     if(cell === 0) {
-      document.getElementById(i + "-" + j).style.backgroundColor = "black";
+      let dead = document.getElementById(i + "-" + j);
+      dead.classList.remove("live");
+      dead.classList.add("die");
     } else {
-      document.getElementById(i + "-" + j).style.backgroundColor = "grey";
+      let alive = document.getElementById(i + "-" + j);
+      alive.classList.remove("die");
+      alive.classList.add("live");
     }
     }
   }
@@ -143,7 +148,9 @@ function cleanGame() {
   for (let i=0; i<matrix.length; i++) {
     for (let j=0; j<matrix[i].length; j++) {
       matrix[i][j] = 0;
-      document.getElementById(i + "-" + j).style.backgroundColor = "black";
+      let clean = document.getElementById(i + "-" + j);
+      clean.classList.remove("live");
+      clean.classList.add("die");
     }
   }
 }
